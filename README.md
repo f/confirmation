@@ -56,7 +56,7 @@ const result = await confirmation(
 
 ## The Key bindings
 
-The <kbd>O</kbd> for **_O_K** and <kbd>C</kbd> for **_C_ancel** are the default key bindings.
+The <kbd>Y</kbd> for **OK** and <kbd>N</kbd> for **Cancel** are the default key bindings.
 
 When you customize your **OK** and **Cancel** buttons, the **first letter** will be the key binding. If you make **I am Sure** instead of **OK**, you'll need to press <kbd>I</kbd> to confirm.
 
