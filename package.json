@@ -1,6 +1,6 @@
 {
   "name": "confirmation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A confirmation window for Node scripts.",
   "main": "src/index.js",
   "devDependencies": {},
