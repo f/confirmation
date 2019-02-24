@@ -12,6 +12,8 @@ yarn add confirmation
 
 ## Usage
 
+In an `async` function just call `await confirmation`.
+
 ```js
 if (await confirmation('Are you sure?')) {
   console.log('Yay!');
@@ -22,7 +24,7 @@ if (await confirmation('Are you sure?')) {
 
 ## API
 
-### `confirmation(message) : bool`
+### `await confirmation(message) : bool`
 
 Shows a message and `OK` and `Cancel` buttons.
 
@@ -31,7 +33,7 @@ _Example_:
 const result = await confirmation('You will delete your items, are you sure?')
 ```
 
-### `confirmation(title, message) : bool`
+### `await confirmation(title, message) : bool`
 
 Shows a message with a title and `OK` and `Cancel` buttons.
 
@@ -40,7 +42,7 @@ _Example_:
 const result = await confirmation('Warning', 'You will delete your items, are you sure?')
 ```
 
-### `confirmation(title, message, ok, cancel) : bool`
+### `await confirmation(title, message, ok, cancel) : bool`
 
 Shows a message with a title and custom `OK` and custom `Cancel` buttons.
 
@@ -59,6 +61,34 @@ const result = await confirmation(
 The <kbd>Y</kbd> for **OK** and <kbd>N</kbd> for **Cancel** are the default key bindings.
 
 When you customize your **OK** and **Cancel** buttons, the **first letter** will be the key binding. If you make **I am Sure** instead of **OK**, you'll need to press <kbd>I</kbd> to confirm.
+
+### Example 1
+_Example_:
+```js
+const result = await confirmation(
+  'Warning',
+  'You will delete your items, are you sure?',
+  '[O] OK',
+  '[X] Close'
+)
+```
+Keymap:
+- <kbd>O</kbd> to Confirm
+- <kbd>X</kbd> to Close
+
+### Example 2
+_Example_:
+```js
+const result = await confirmation(
+  'Warnin\'',
+  'Ye will scuttle yer items, are ye sure?',
+  'Aye',
+  'No'
+)
+```
+Keymap:
+- <kbd>A</kbd> (_A_ye) to Confirm
+- <kbd>N</kbd> (_N_o) to Close
 
 ## License
 MIT &copy; Fatih Kadir Akin
