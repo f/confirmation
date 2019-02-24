@@ -22,6 +22,8 @@ if (await confirmation('Are you sure?')) {
 }
 ```
 
+![confirmation](resources/confirmation.png?v1)
+
 ## API
 
 ### `await confirmation(message) : bool`
