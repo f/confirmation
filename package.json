@@ -1,13 +1,15 @@
 {
   "name": "confirmation",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A confirmation window for Node scripts.",
   "main": "src/index.js",
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "files": ["src/index.js"],
+  "files": [
+    "src/index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/f/confirmation.git"
