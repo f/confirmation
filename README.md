@@ -1,4 +1,4 @@
-# confirmation
+# ⁉️ confirmation
 
 A simple Node tool to have Browser's `confirm` popup on your CLI.
 
