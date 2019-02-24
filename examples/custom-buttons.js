@@ -3,9 +3,11 @@ const confirmation = require('../src');
 (async () => {
   if (await await confirmation(
     'Warning',
-    'You will delete your items, are you sure?',
-    'I am sure',
-    'No!'
+    {
+      message: 'You will delete your items, are you sure?',
+      okText: 'I am sure',
+      cancelText: 'No!'
+    }
   )) {
     console.log('Yay!');
   } else {

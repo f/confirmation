@@ -37,7 +37,9 @@ Shows a message with a title and `OK` and `Cancel` buttons.
 
 _Example_:
 ```js
-const result = await confirmation('Warning', 'You will delete your items, are you sure?')
+const result = await confirmation('Warning', {
+  message: 'You will delete your items, are you sure?'
+})
 ```
 
 ### `confirmation(title, message, ok, cancel) : bool`
@@ -48,9 +50,11 @@ _Example_:
 ```js
 const result = await confirmation(
   'Warning',
-  'You will delete your items, are you sure?',
-  'I am sure',
-  'No!'
+  {
+    message: 'You will delete your items, are you sure?',
+    okText: 'I am sure',
+    cancelText: 'No!'
+  }
 )
 ```
 

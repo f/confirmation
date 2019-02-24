@@ -9,14 +9,22 @@ const shortcutifyText = text => {
   );
 };
 
-function confirm(title, message, okText = "[Y] OK", cancelText = "[N] Cancel") {
-  if (!message) {
-    message = title;
-    title = '';
-  }
+function confirm(title,customSettings = null)
+{
+  let defaultSettings = {
+    message: "Congratulations", 
+    okText: "[Y] OK",
+    cancelText: "[N] Cancel"
+  };
+  const settings;
+
+  if( customSettings )
+    settings = { ...defaultSettings, ...customSettings };
+  else settings = defaultSettings;
+  
   var screen = blessed.screen({
     smartCSR: true,
-    title: title || message,
+    title: title || settings.message,
     fullUnicode: true
   });
 
@@ -26,7 +34,7 @@ function confirm(title, message, okText = "[Y] OK", cancelText = "[N] Cancel") {
     left: "center",
     width: "50%",
     height: "shrink",
-    content: `${title ? `{bold}${title}{/bold}\n\n` : ''}${message}\n\n\n`,
+    content: `${title ? `{bold}${title}{/bold}\n\n` : ''}${settings.message}\n\n\n`,
     tags: true,
     border: {
       type: "bg"
@@ -50,7 +58,7 @@ function confirm(title, message, okText = "[Y] OK", cancelText = "[N] Cancel") {
     right: 0,
     bottom: 0,
     name: "submit",
-    content: shortcutifyText(okText),
+    content: shortcutifyText(settings.okText),
     padding: { left: 2, right: 2, top: 1, bottom: 1 },
     style: {
       bg: "green",
@@ -73,7 +81,7 @@ function confirm(title, message, okText = "[Y] OK", cancelText = "[N] Cancel") {
       "{underline}{/underline}".length,
     bottom: 0,
     name: "cancel",
-    content: shortcutifyText(cancelText),
+    content: shortcutifyText(settings.cancelText),
     padding: { left: 2, right: 2, top: 1, bottom: 1 },
     style: {
       bg: "red",
@@ -90,8 +98,8 @@ function confirm(title, message, okText = "[Y] OK", cancelText = "[N] Cancel") {
   return new Promise(resolve => {
     submit.on("press", () => makeDecision(resolve, true));
     cancel.on("press", () => makeDecision(resolve, false));
-    screen.key([shortcut(okText)], () => makeDecision(resolve, true));
-    screen.key([shortcut(cancelText)], () => makeDecision(resolve, false));
+    screen.key([shortcut(settings.okText)], () => makeDecision(resolve, true));
+    screen.key([shortcut(settings.cancelText)], () => makeDecision(resolve, false));
     screen.key(["escape", "q", "C-c"], () => makeDecision(resolve, false));
     screen.append(form);
     form.focus();
