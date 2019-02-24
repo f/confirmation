@@ -9,7 +9,7 @@ const shortcutifyText = text => {
   );
 };
 
-function confirm(title, message, okText = "OK", cancelText = "Cancel") {
+function confirm(title, message, okText = "[Y] OK", cancelText = "[N] Cancel") {
   if (!message) {
     message = title;
     title = '';
