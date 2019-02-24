@@ -2,7 +2,7 @@
 
 A simple Node tool to have Browser's `confirm` popup on your CLI.
 
-![confirmation](resources/confirmation.png?v1)
+![confirmation](resources/demo.gif?v1)
 
 ## Installation
 
